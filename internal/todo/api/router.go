@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/kostjaog/go-to-do/pkg/repository"
+	"github.com/kostjaog/go-to-do/internal/todo/repository"
 )
 
 // RegisterTodoRoutes регистрирует маршруты для todo

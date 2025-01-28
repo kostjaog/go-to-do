@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/kostjaog/go-to-do/config"
 	_ "github.com/kostjaog/go-to-do/docs"
-	"github.com/kostjaog/go-to-do/pkg/api"
-	"github.com/kostjaog/go-to-do/pkg/config"
-	"github.com/kostjaog/go-to-do/pkg/model"
-	"github.com/kostjaog/go-to-do/pkg/repository"
+	"github.com/kostjaog/go-to-do/internal/todo/api"
+	"github.com/kostjaog/go-to-do/internal/todo/model"
+	"github.com/kostjaog/go-to-do/internal/todo/repository"
 	httpSwagger "github.com/swaggo/http-swagger"
 
 	"github.com/gorilla/mux"

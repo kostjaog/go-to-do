@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/kostjaog/go-to-do/pkg/model"
-	"github.com/kostjaog/go-to-do/pkg/repository"
+	"github.com/kostjaog/go-to-do/internal/todo/model"
+	"github.com/kostjaog/go-to-do/internal/todo/repository"
 )
 
 type Handler struct {

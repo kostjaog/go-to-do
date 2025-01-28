@@ -20,7 +20,13 @@ services:
     volumes:
       - .:/app
     working_dir: /app
-    command: /bin/sh -c "until nc -z -v -w30 db 5432; do echo 'Waiting for DB...'; sleep 5; done; go run cmd/main.go"
+    command: /bin/sh -c "
+      until nc -z -v -w30 db 5432;
+      do
+        echo 'Waiting for DB...';
+        sleep 5;
+      done;
+     swag init -g cmd/main.go && go run cmd/main.go"
 
   db:
     image: postgres:13

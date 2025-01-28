@@ -24,3 +24,11 @@ func (r *TodoRepository) GetAll() ([]model.Todo, error) {
 func (r *TodoRepository) Create(todo *model.Todo) error {
 	return r.db.Create(todo).Error
 }
+
+func (r *TodoRepository) FindOne(id string) (*model.Todo, error) {
+	var todo model.Todo
+	if err := r.db.First(&todo, "id = ?", id).Error; err != nil {
+		return nil, err
+	}
+	return &todo, nil
+}

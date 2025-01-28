@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/kostjaog/go-to-do/config"
 	_ "github.com/kostjaog/go-to-do/docs"
 	"github.com/kostjaog/go-to-do/internal/todo/api"
@@ -12,7 +14,6 @@ import (
 	"github.com/kostjaog/go-to-do/internal/todo/repository"
 	httpSwagger "github.com/swaggo/http-swagger"
 
-	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 )
@@ -38,10 +39,14 @@ func init() {
 
 func main() {
 	// Создаем центральный маршрутизатор
-	r := mux.NewRouter()
+	r := chi.NewRouter()
+
+	// Добавляем middleware
+	r.Use(middleware.Logger)
+	r.Use(middleware.Recoverer)
 
 	// Добавляем маршруты Swagger
-	r.PathPrefix("/swagger").Handler(httpSwagger.WrapHandler)
+	r.Get("/swagger/*", httpSwagger.WrapHandler)
 
 	// Создаем репозиторий todo
 	todoRepo := repository.NewTodoRepository(db)

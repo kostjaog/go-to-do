@@ -4,10 +4,10 @@ tmp_dir = "tmp"
 
 [build]
   # Команда для сборки бинарника в tmp/main
-  cmd = "go build -o tmp/main cmd/main.go"
+  cmd = "swag init -g cmd/main.go && go build -o tmp/main cmd/main.go"
   bin = "./tmp/main"  # Указываем путь к бинарному файлу
   delay = 1000
-  exclude_dir = ["assets", "tmp", "vendor", "testdata"]
+  exclude_dir = ["assets", "tmp", "vendor", "testdata", "docs"]
   exclude_file = []
   exclude_regex = ["_test.go"]
   exclude_unchanged = false

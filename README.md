@@ -1,10 +1,14 @@
+Вот обновленный текст, включающий информацию о Swagger-документации:
+
+---
+
 # Go To-Do API
 
 This is a simple To-Do list API built with Go. It features basic CRUD operations for managing tasks with PostgreSQL as the database backend.
 
 ## Features
 - Create, read, update, and delete to-dos.
-- Basic API documentation (Swagger to be added later).
+- Basic API documentation available at `/swagger/` (via Swagger UI).
 
 ## Prerequisites
 - Go 1.23 or higher
@@ -68,16 +72,16 @@ This will launch both the API and PostgreSQL containers.
 | `DB_NAME`     | Name of the PostgreSQL database    | `todo_app`             |
 | `DB_HOST`     | Host for the PostgreSQL database   | `localhost`            |
 | `DB_PORT`     | Port for the PostgreSQL database   | `5432`                 |
-| `APP_PORT`     | Port for the API   | `3000`                 |
+| `APP_PORT`    | Port for the API                  | `3000`                 |
 
 ## Database Structure
 
-| Table    | Column       | Type    | Description                          |
-|----------|--------------|---------|--------------------------------------|
-| `todos`  | `id`         | `UUID`  | Unique identifier for each task     |
-|          | `title`      | `string`| Title of the to-do task             |
-|          | `completed`  | `bool`  | Whether the task is completed       |
-|          | `created_at` | `timestamp` | Timestamp when the task was created |
+| Table    | Column       | Type         | Description                        |
+|----------|--------------|--------------|------------------------------------|
+| `todos`  | `id`         | `UUID`       | Unique identifier for each task    |
+|          | `title`      | `string`     | Title of the to-do task            |
+|          | `completed`  | `bool`       | Whether the task is completed      |
+|          | `created_at` | `timestamp`  | Timestamp when the task was created|
 
 ## Endpoints
 
@@ -98,3 +102,7 @@ This will launch both the API and PostgreSQL containers.
 - **Response**: The created to-do item with all its details.
 
 ---
+
+## Swagger Documentation
+
+The API documentation is available via Swagger UI at `http://localhost:3000/swagger/`. Use this to explore and test the available endpoints interactively.

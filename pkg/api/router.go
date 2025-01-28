@@ -5,10 +5,9 @@ import (
 	"github.com/kostjaog/go-to-do/pkg/repository"
 )
 
-func SetupRouter(todoRepo *repository.TodoRepository) *mux.Router {
-	handler := NewHandler(todoRepo)
-	r := mux.NewRouter()
+// RegisterTodoRoutes регистрирует маршруты для todo
+func RegisterTodoRoutes(r *mux.Router, repo *repository.TodoRepository) {
+	handler := NewHandler(repo)
 	r.HandleFunc("/todos", handler.GetTodos).Methods("GET")
 	r.HandleFunc("/todos", handler.CreateTodo).Methods("POST")
-	return r
 }

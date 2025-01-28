@@ -47,7 +47,6 @@ func main() {
 	// Загружаем кастомный порт
 	cfg := config.LoadConfig()
 
-	// Запуск сервера на кастомном порту
 	fmt.Printf("Запуск сервера. Порт: %s...\n", cfg.AppPort)
 	log.Fatal(http.ListenAndServe(":"+cfg.AppPort, r))
 }

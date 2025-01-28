@@ -93,7 +93,7 @@ const docTemplate = `{
         },
         "/todos/{id}": {
             "get": {
-                "description": "Возвращает задачу с указанным ID",
+                "description": "Удаляет задачу с указанным ID",
                 "consumes": [
                     "application/json"
                 ],
@@ -103,7 +103,7 @@ const docTemplate = `{
                 "tags": [
                     "todos"
                 ],
-                "summary": "Получить задачу по ID",
+                "summary": "Удалить задачу по ID",
                 "parameters": [
                     {
                         "type": "string",

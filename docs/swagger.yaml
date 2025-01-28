@@ -69,7 +69,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: Возвращает задачу с указанным ID
+      description: Удаляет задачу с указанным ID
       parameters:
       - description: ID задачи
         in: path
@@ -91,7 +91,7 @@ paths:
           description: Ошибка при получении задачи
           schema:
             type: string
-      summary: Получить задачу по ID
+      summary: Удалить задачу по ID
       tags:
       - todos
 swagger: "2.0"

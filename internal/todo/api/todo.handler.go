@@ -86,3 +86,31 @@ func (h *Handler) GetTodoByID(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(todo)
 }
+
+// GetTodoByID godoc
+// @Summary Удалить задачу по ID
+// @Description Удаляет задачу с указанным ID
+// @Tags todos
+// @Accept  json
+// @Produce  json
+// @Param id path string true "ID задачи"
+// @Success 200 {object} model.Todo
+// @Failure 404 {string} string "Задача не найдена"
+// @Failure 500 {string} string "Ошибка при получении задачи"
+// @Router /todos/{id} [get]
+func (h *Handler) DeleteTodoById(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	if id == "" {
+		http.Error(w, "Не указан ID задачи", http.StatusBadRequest)
+		return
+	}
+
+	todo, err := h.todoRepo.DeleteOne(id)
+	if err != nil {
+		http.Error(w, "Задача не найдена", http.StatusNotFound)
+		return
+	}
+
+	json.NewEncoder(w).Encode(todo)
+}

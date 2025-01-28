@@ -32,3 +32,15 @@ func (r *TodoRepository) FindOne(id string) (*model.Todo, error) {
 	}
 	return &todo, nil
 }
+
+func (r *TodoRepository) DeleteOne(id string) (*model.Todo, error) {
+	todo, err := r.FindOne(id)
+	if err != nil {
+		return nil, err
+	}
+	// Удаляем найденную задачу
+	if err := r.db.Delete(&todo).Error; err != nil {
+		return nil, err
+	}
+	return todo, nil
+}
